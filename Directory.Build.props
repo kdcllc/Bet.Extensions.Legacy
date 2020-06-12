@@ -1,0 +1,10 @@
+<Project>
+
+  <PropertyGroup>
+    <RepoRoot>$(MSBuildThisFileDirectory)</RepoRoot>
+  </PropertyGroup>
+
+  <Import Project="build\settings.props" Condition="$(MSBuildProjectName)!='Bet.WebAppSample'" />
+  <Import Project="build\sources.props" Condition="$(MSBuildProjectName)!='Bet.WebAppSample'"/>
+
+</Project>

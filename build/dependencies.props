@@ -1,0 +1,39 @@
+<Project>
+
+  <PropertyGroup>
+    <DotNetCoreCommon>3.1.5</DotNetCoreCommon>
+  </PropertyGroup>
+
+  <ItemGroup Label="Microsoft">
+    <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(DotNetCoreCommon)" />
+    <PackageReference Update="Microsoft.Extensions.Configuration" Version="$(DotNetCoreCommon)" />
+    <PackageReference Update="Microsoft.Extensions.Configuration.FileExtensions" Version="$(DotNetCoreCommon)" />
+    <PackageReference Update="Microsoft.Extensions.Options" Version="$(DotNetCoreCommon)" />
+    <PackageReference Update="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Update="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
+  </ItemGroup>
+
+  <ItemGroup Label="System">
+    <PackageReference Update="System.Configuration.ConfigurationManager" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup Label="SourceLink">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup Label="Analyzers">
+    <PackageReference Include="Bet.CodeAnalyzers" Version="1.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Bet.EditorConfig" Version="1.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="../../img/icon.png" Pack="true" Visible="false" PackagePath="" />
+  </ItemGroup>
+
+</Project>

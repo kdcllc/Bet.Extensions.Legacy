@@ -1,0 +1,78 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{F38DA04B-7AFD-43C9-B87A-699645D67944}"
+	ProjectSection(SolutionItems) = preProject
+		build\dependencies.props = build\dependencies.props
+		build\settings.props = build\settings.props
+		build\sources.props = build\sources.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F2E58967-4704-4A8E-B5CE-ECC31726FAEB}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		appveyor.yml = appveyor.yml
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F1F583EE-2F4E-4826-AD92-11769D59ED5B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1D2539B2-9F53-4F3F-9565-0EDB67B5F52E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.AspNet.DependencyInjection.Legacy", "src\Bet.AspNet.DependencyInjection.Legacy\Bet.AspNet.DependencyInjection.Legacy.csproj", "{10EF1DA3-55CD-4F61-81D1-F505CA6B07D5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.Extensions.Options.Legacy", "src\Bet.Extensions.Options.Legacy\Bet.Extensions.Options.Legacy.csproj", "{1E9231A0-9B28-43D7-8438-89167FE11FFE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.Extensions.Legacy.UnitTest", "test\Bet.Extensions.Legacy.UnitTest\Bet.Extensions.Legacy.UnitTest.csproj", "{7E0AB36D-D035-46FC-9E64-CCA7DC7A05FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bet.WebAppSample", "src\Bet.WebAppSample\Bet.WebAppSample.csproj", "{C029416E-7502-475A-A8EF-4DE55DDA014B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bet.Extensions.LegacyHosting", "src\Bet.Extensions.LegacyHosting\Bet.Extensions.LegacyHosting.csproj", "{3A8E9CCF-7EF6-42A1-9DBA-BD7354EEE723}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10EF1DA3-55CD-4F61-81D1-F505CA6B07D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10EF1DA3-55CD-4F61-81D1-F505CA6B07D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10EF1DA3-55CD-4F61-81D1-F505CA6B07D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10EF1DA3-55CD-4F61-81D1-F505CA6B07D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E9231A0-9B28-43D7-8438-89167FE11FFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E9231A0-9B28-43D7-8438-89167FE11FFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E9231A0-9B28-43D7-8438-89167FE11FFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E9231A0-9B28-43D7-8438-89167FE11FFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E0AB36D-D035-46FC-9E64-CCA7DC7A05FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E0AB36D-D035-46FC-9E64-CCA7DC7A05FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E0AB36D-D035-46FC-9E64-CCA7DC7A05FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E0AB36D-D035-46FC-9E64-CCA7DC7A05FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C029416E-7502-475A-A8EF-4DE55DDA014B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C029416E-7502-475A-A8EF-4DE55DDA014B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C029416E-7502-475A-A8EF-4DE55DDA014B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C029416E-7502-475A-A8EF-4DE55DDA014B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A8E9CCF-7EF6-42A1-9DBA-BD7354EEE723}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A8E9CCF-7EF6-42A1-9DBA-BD7354EEE723}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A8E9CCF-7EF6-42A1-9DBA-BD7354EEE723}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A8E9CCF-7EF6-42A1-9DBA-BD7354EEE723}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{10EF1DA3-55CD-4F61-81D1-F505CA6B07D5} = {F1F583EE-2F4E-4826-AD92-11769D59ED5B}
+		{1E9231A0-9B28-43D7-8438-89167FE11FFE} = {F1F583EE-2F4E-4826-AD92-11769D59ED5B}
+		{7E0AB36D-D035-46FC-9E64-CCA7DC7A05FB} = {1D2539B2-9F53-4F3F-9565-0EDB67B5F52E}
+		{C029416E-7502-475A-A8EF-4DE55DDA014B} = {F1F583EE-2F4E-4826-AD92-11769D59ED5B}
+		{3A8E9CCF-7EF6-42A1-9DBA-BD7354EEE723} = {F1F583EE-2F4E-4826-AD92-11769D59ED5B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3286E71C-82D1-410C-9C33-A4C44DB6E718}
+	EndGlobalSection
+EndGlobal

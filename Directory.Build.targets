@@ -1,0 +1,5 @@
+<Project>
+
+  <Import Project="build\dependencies.props" Condition="$(MSBuildProjectName)!='Bet.WebAppSample'"/>
+
+</Project>
