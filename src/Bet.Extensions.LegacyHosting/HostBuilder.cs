@@ -8,7 +8,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Bet.Extensions.LegacyHosting
 {
-    public class LegacyHostBuilder
+    /// <summary>
+    /// Legacy HostBuilder designed to provided migraion path for existing .NET Framework projects.
+    /// </summary>
+    public class HostBuilder
     {
         private List<Action<IConfigurationBuilder>> _configureHostConfigActions = new List<Action<IConfigurationBuilder>>();
 
@@ -32,8 +35,8 @@ namespace Bet.Extensions.LegacyHosting
         /// </summary>
         /// <param name="configureDelegate">The delegate for configuring the <see cref="IConfigurationBuilder"/> that will be used
         /// to construct the <see cref="IConfiguration"/> for the host.</param>
-        /// <returns>The same instance of the <see cref="LegacyHostBuilder"/> for chaining.</returns>
-        public LegacyHostBuilder ConfigureHostConfiguration(Action<IConfigurationBuilder> configureDelegate)
+        /// <returns>The same instance of the <see cref="HostBuilder"/> for chaining.</returns>
+        public HostBuilder ConfigureHostConfiguration(Action<IConfigurationBuilder> configureDelegate)
         {
             _configureHostConfigActions.Add(configureDelegate ?? throw new ArgumentNullException(nameof(configureDelegate)));
             return this;
@@ -46,8 +49,8 @@ namespace Bet.Extensions.LegacyHosting
         /// </summary>
         /// <param name="configureDelegate">The delegate for configuring the <see cref="IConfigurationBuilder"/> that will be used
         /// to construct the <see cref="IConfiguration"/> for the host.</param>
-        /// <returns>The same instance of the <see cref="LegacyHostBuilder"/> for chaining.</returns>
-        public LegacyHostBuilder ConfigureAppConfiguration(Action<HostBuilderContext, IConfigurationBuilder> configureDelegate)
+        /// <returns>The same instance of the <see cref="HostBuilder"/> for chaining.</returns>
+        public HostBuilder ConfigureAppConfiguration(Action<HostBuilderContext, IConfigurationBuilder> configureDelegate)
         {
             _configureAppConfigActions.Add(configureDelegate ?? throw new ArgumentNullException(nameof(configureDelegate)));
             return this;
@@ -58,8 +61,8 @@ namespace Bet.Extensions.LegacyHosting
         /// </summary>
         /// <param name="configureDelegate">The delegate for configuring the <see cref="IConfigurationBuilder"/> that will be used
         /// to construct the <see cref="IConfiguration"/> for the host.</param>
-        /// <returns>The same instance of the <see cref="LegacyHostBuilder"/> for chaining.</returns>
-        public LegacyHostBuilder ConfigureServices(Action<HostBuilderContext, IServiceCollection> configureDelegate)
+        /// <returns>The same instance of the <see cref="HostBuilder"/> for chaining.</returns>
+        public HostBuilder ConfigureServices(Action<HostBuilderContext, IServiceCollection> configureDelegate)
         {
             _configureServicesActions.Add(configureDelegate ?? throw new ArgumentNullException(nameof(configureDelegate)));
             return this;
@@ -68,7 +71,7 @@ namespace Bet.Extensions.LegacyHosting
         /// <summary>
         /// Run the given actions to initialize the host. This can only be called once.
         /// </summary>
-        public LegacyHostContext Build()
+        public IHost Build()
         {
             if (_hostBuilt)
             {
@@ -82,7 +85,7 @@ namespace Bet.Extensions.LegacyHosting
             BuildAppConfiguration();
             CreateServiceProvider();
 
-            return _appServices.GetRequiredService<LegacyHostContext>();
+            return _appServices.GetRequiredService<IHost>();
         }
 
         private void BuildHostConfiguration()
@@ -141,12 +144,13 @@ namespace Bet.Extensions.LegacyHosting
             services.AddSingleton<IHostEnvironment>(_hostBuilderContext.HostingEnvironment);
             services.AddSingleton(_hostBuilderContext);
 
-            services.AddSingleton<LegacyHostContext>();
+            services.AddSingleton<IHost, Internal.Host>();
 
             // register configuration as factory to make it dispose with the service provider
             services.AddSingleton(_ => _hostBuilderContext.Configuration);
             services.AddSingleton(_hostBuilderContext.Configuration);
             services.AddOptions();
+            services.AddLogging();
 
             foreach (var configureServicesAction in _configureServicesActions)
             {

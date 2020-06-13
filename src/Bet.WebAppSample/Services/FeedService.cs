@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 using Bet.Extensions.LegacyHosting;
+using Bet.WebAppSample.Options;
+
+using Microsoft.Extensions.Options;
 
 namespace Bet.WebAppSample.Services
 {
     public class FeedService
     {
+        private readonly AppOptions _options;
         private readonly IHostEnvironment _hostEnvironment;
 
-        public FeedService(IHostEnvironment hostEnvironment)
+        public FeedService(IOptions<AppOptions> options, IHostEnvironment hostEnvironment)
         {
+            _options = options.Value;
             _hostEnvironment = hostEnvironment;
         }
 
         public string GetValue()
         {
-            return _hostEnvironment.EnvironmentName;
+            return $"Environment Value: {_hostEnvironment.EnvironmentName} - Custom Option Value: {_options.TextValue}";
         }
     }
 }

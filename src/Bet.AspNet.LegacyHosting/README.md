@@ -1,21 +1,26 @@
-﻿using System;
-using System.Web;
-using System.Web.Http;
-using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
+﻿# Bet.AspNet.LegacyHosting
 
-using Bet.AspNet.LegacyHosting;
-using Bet.WebAppSample.Options;
-using Bet.WebAppSample.Services;
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/kdcllc/Bet.Extensions.Legacy/master/LICENSE)
 
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+[![Build status](https://ci.appveyor.com/api/projects/status/fib71kajo91ygfrp?svg=true)](https://ci.appveyor.com/project/kdcllc/bet-extensions-legacy)
 
-namespace Bet.WebAppSample
-{
-    public class Global : HttpApplication
-    {
+[![NuGet](https://img.shields.io/nuget/v/Bet.AspNet.LegacyHosting.svg)](https://www.nuget.org/packages?q=Bet.AspNet.LegacyHosting)
+![Nuget](https://img.shields.io/nuget/dt/Bet.AspNet.LegacyHosting)
+
+[![feedz.io](https://img.shields.io/badge/endpoint.svg?url=https://f.feedz.io/kdcllc/bet-extensions-resilience/shield/Bet.AspNet.LegacyHosting/latest)](https://f.feedz.io/kdcllc/kdcllc/packages/Bet.AspNet.LegacyHosting/latest/download)
+
+
+## Required DotNetCore libraries to be installed on Asp.Net Web Application Project
+
+- Microsoft.Extensions.Configuration
+- Microsoft.Extensions.Configuration.FileExtensions
+- Microsoft.Extensions.DependencyInjection
+- Microsoft.Extensions.Logging
+- Bet.Extensions.LegacyHosting
+
+## Usage within Asp.Net MVC5, WebApi2 or WebForms
+
+```csharp
         void Application_Start(object sender, EventArgs e)
         {
             var builder = WebHost.CreateDefaultBuilder<Global>()
@@ -45,4 +50,6 @@ namespace Bet.WebAppSample
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }
     }
-}
+```
+
+This IHost can also be utilized inside of `Owin`.

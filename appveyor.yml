@@ -31,10 +31,10 @@ artifacts:
 - path: .\packages\**\*.nupkg
   name: NuGet package
 
-# deploy:
-# - provider: NuGet
-#   artifact: /NuGet/
-#   api_key:
-#     secure: jrexooMHJwdbj5MGacSL9fCj3g2haDXMarPEkiLpdIZmasb/zeMYb0NVofvi5HvJ
-#   on:
-#     branch: master
+ deploy:
+ - provider: NuGet
+   artifact: /NuGet/
+   api_key:
+     secure: jrexooMHJwdbj5MGacSL9fCj3g2haDXMarPEkiLpdIZmasb/zeMYb0NVofvi5HvJ
+   on:
+     branch: master
