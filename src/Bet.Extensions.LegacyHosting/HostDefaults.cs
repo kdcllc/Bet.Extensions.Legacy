@@ -8,16 +8,16 @@
         /// <summary>
         /// The configuration key used to set <see cref="IHostEnvironment.ApplicationName"/>.
         /// </summary>
-        public static readonly string ApplicationKey = "AppSettings:ApplicationName";
+        public static readonly string ApplicationKey = "ApplicationName";
 
         /// <summary>
         /// The configuration key used to set <see cref="IHostEnvironment.EnvironmentName"/>.
         /// </summary>
-        public static readonly string EnvironmentKey = "AppSettings:Environment";
+        public static readonly string EnvironmentKey = "Environment";
 
         /// <summary>
         /// The configuration key used to set <see cref="IHostEnvironment.ContentRootPath"/>.
         /// </summary>
-        public static readonly string ContentRootKey = "AppSettings:ContentRoot";
+        public static readonly string ContentRootKey = "ContentRoot";
     }
 }
