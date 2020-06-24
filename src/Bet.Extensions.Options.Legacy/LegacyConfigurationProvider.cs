@@ -37,12 +37,12 @@ namespace Microsoft.Extensions.Configuration
             {
                 var key = $"AppSettings:{settingKey}";
 
-                if (Data.ContainsKey(key))
+                if (Data.ContainsKey(settingKey))
                 {
-                    Data.Remove(key);
+                    Data.Remove(settingKey);
                 }
 
-                Data.Add(key, _legacyConfiguration.AppSettings.Settings[settingKey].Value);
+                Data.Add(settingKey, _legacyConfiguration.AppSettings.Settings[settingKey].Value);
             }
         }
 

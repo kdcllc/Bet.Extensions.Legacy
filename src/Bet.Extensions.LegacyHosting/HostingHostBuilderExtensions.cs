@@ -7,6 +7,24 @@ namespace Bet.Extensions.LegacyHosting
 {
     public static class HostingHostBuilderExtensions
     {
+        /// <summary>
+        /// Specify name for the application.
+        /// </summary>
+        /// <param name="hostBuilder"></param>
+        /// <param name="applicationName"></param>
+        /// <returns></returns>
+        public static HostBuilder UseApplicationName(this HostBuilder hostBuilder, string applicationName)
+        {
+            return hostBuilder.ConfigureHostConfiguration(configBuilder =>
+            {
+                configBuilder.AddInMemoryCollection(new[]
+                {
+                    new KeyValuePair<string, string>(
+                        HostDefaults.ApplicationKey,
+                        applicationName ?? throw new ArgumentNullException(nameof(applicationName)))
+                });
+            });
+        }
 
         /// <summary>
         /// Specify the environment to be used by the host.

@@ -24,7 +24,7 @@ namespace Bet.WebAppSample
                                     services.AddOptions<AppOptions>()
                                     .Configure<IConfiguration>((options, config) =>
                                     {
-                                        config.Bind("AppSettings:AppOptions", options);
+                                        config.Bind("AppOptions", options);
                                     });
 
                                     // register our service here
