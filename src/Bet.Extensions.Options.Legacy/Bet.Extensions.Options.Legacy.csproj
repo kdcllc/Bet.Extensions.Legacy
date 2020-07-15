@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <PropertyGroup Label="Nuget">
-    <Description>The migration tooling of .NET Framework application that need support for legacy configurations as App.config and Web.config.</Description>
-    <PackageTags>Migration, ASP.NET Web, .NET Framework, Configuration, Extensions, DotNetCore, AspNetCore, Legacy Options Provider</PackageTags>
+    <Description>The migration tooling of .NET Framework application that needs to support a legacy configurations as App.config or Web.config.</Description>
+    <PackageTags>Migration, ASP.NET Web, .NET Framework, Configuration, Extensions, DotNetCore, AspNetCore, Legacy Options Provider, Microsoft.Extensions.Configuration</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Web.Http;
 
+using Bet.AspNet.FeatureManagement;
 using Bet.WebAppSample.Services;
 
 namespace Bet.WebAppSample.Controllers
@@ -15,6 +16,7 @@ namespace Bet.WebAppSample.Controllers
         }
 
         // GET: api/Values
+        [ApiFeatureGate(FeatureReleaseFlags.Alpha)]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2", _feedService.GetValue() };

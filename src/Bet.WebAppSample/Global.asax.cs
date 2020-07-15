@@ -11,6 +11,8 @@ using Bet.WebAppSample.Services;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.FeatureManagement;
 
 namespace Bet.WebAppSample
 {
@@ -19,6 +21,16 @@ namespace Bet.WebAppSample
         void Application_Start(object sender, EventArgs e)
         {
             var builder = WebHost.CreateDefaultBuilder<Global>()
+                                .UseAzureAppConfiguration(
+                                 "WebApp:AppOptions*",
+                                 "WebApp:AppOptions:Flag",
+                                 configureAzureAppConfigOptions: options =>
+                                 {
+                                     options.UseFeatureFlags(flags =>
+                                     {
+                                         flags.CacheExpirationTime = TimeSpan.FromSeconds(1);
+                                     });
+                                 })
                                 .ConfigureServices((context, services) =>
                                 {
                                     services.AddOptions<AppOptions>()
@@ -26,6 +38,8 @@ namespace Bet.WebAppSample
                                     {
                                         config.Bind("AppOptions", options);
                                     });
+
+                                    services.AddFeatureManagement();
 
                                     // register our service here
                                     services.AddTransient<FeedService>();
@@ -37,6 +51,8 @@ namespace Bet.WebAppSample
 
             // Configure DI for WebForms
             builder.ConfigureWebFormsResolver();
+
+            var logger = builder.Services.GetService<ILoggerFactory>().CreateLogger(nameof(WebApiConfig));
 
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();

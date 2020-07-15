@@ -5,19 +5,35 @@
   </PropertyGroup>
 
   <ItemGroup Label="Microsoft">
+    <PackageReference Update="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(DotNetCoreCommon)" />
     <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(DotNetCoreCommon)" />
     <PackageReference Update="Microsoft.Extensions.Configuration" Version="$(DotNetCoreCommon)" />
+    <PackageReference Update="Microsoft.Extensions.Configuration.Binder" Version="$(DotNetCoreCommon)" />
     <PackageReference Update="Microsoft.Extensions.Configuration.FileExtensions" Version="$(DotNetCoreCommon)" />
     <PackageReference Update="Microsoft.Extensions.Options" Version="$(DotNetCoreCommon)" />
     <PackageReference Update="Microsoft.Extensions.Configuration.Binder" Version="$(DotNetCoreCommon)" />
     <PackageReference Update="Microsoft.Extensions.Configuration.Json" Version="$(DotNetCoreCommon)" />
     <PackageReference Update="Microsoft.Extensions.Logging" Version="$(DotNetCoreCommon)" />
     <PackageReference Update="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Update="Microsoft.AspNet.WebApi" Version="5.2.7" />
+    <PackageReference Update="Microsoft.AspNet.WebApi.WebHost" Version="5.2.7" />
     <PackageReference Update="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
   </ItemGroup>
 
   <ItemGroup Label="System">
     <PackageReference Update="System.Configuration.ConfigurationManager" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup Label="Microsoft.FeatureManagement">
+    <PackageReference Update="Azure.Identity" Version="1.1.1" />
+    <PackageReference Update="Microsoft.Extensions.Configuration.AzureAppConfiguration" Version="3.0.2" />
+    <PackageReference Update="Microsoft.FeatureManagement" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Label="Owin">
+    <PackageReference Update="Microsoft.Owin" Version="4.1.0" />
+    <PackageReference Update="Microsoft.Owin.Host.SystemWeb" Version="4.1.0" />
+    <PackageReference Update="Owin" Version="1.0" />
   </ItemGroup>
 
   <ItemGroup Label="SourceLink">

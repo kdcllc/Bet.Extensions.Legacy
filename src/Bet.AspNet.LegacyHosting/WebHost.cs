@@ -17,7 +17,7 @@ namespace Bet.AspNet.LegacyHosting
         /// <param name="contentRoot"></param>
         /// <param name="legacyFileName"></param>
         /// <returns></returns>
-        public static HostBuilder CreateDefaultBuilder<TStart>(
+        public static IHostBuilder CreateDefaultBuilder<TStart>(
             string contentRoot = "",
             string legacyFileName = "Web.config")
         {
@@ -44,7 +44,7 @@ namespace Bet.AspNet.LegacyHosting
         /// <param name="contentRoot"></param>
         /// <param name="legacyFileName"></param>
         /// <returns></returns>
-        public static HostBuilder CreateDefaultBuilder(
+        public static IHostBuilder CreateDefaultBuilder(
             string contentRoot = "",
             string legacyFileName = "Web.config")
         {

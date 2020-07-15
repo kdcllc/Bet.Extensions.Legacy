@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.FileProviders;
-
-namespace Bet.Extensions.LegacyHosting
+﻿namespace Bet.Extensions.LegacyHosting
 {
     /// <summary>
     /// Provides information about the hosting environment an application is running in.

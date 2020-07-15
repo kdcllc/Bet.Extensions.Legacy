@@ -35,7 +35,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bet.WebAppSample", "src\Bet
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.Extensions.LegacyHosting", "src\Bet.Extensions.LegacyHosting\Bet.Extensions.LegacyHosting.csproj", "{3A8E9CCF-7EF6-42A1-9DBA-BD7354EEE723}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bet.AspNet.LegacyHosting", "src\Bet.AspNet.LegacyHosting\Bet.AspNet.LegacyHosting.csproj", "{6C68A8DB-30F7-471D-85BC-82ED943D78FB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.AspNet.LegacyHosting", "src\Bet.AspNet.LegacyHosting\Bet.AspNet.LegacyHosting.csproj", "{6C68A8DB-30F7-471D-85BC-82ED943D78FB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.AspNet.FeatureManagement", "src\Bet.AspNet.FeatureManagement\Bet.AspNet.FeatureManagement.csproj", "{5EB763E6-7616-4395-9EAB-4CA20CCE89B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bet.AspNet.LegacyHosting.AzureAppConfiguration", "src\Bet.AspNet.LegacyHosting.AzureAppConfiguration\Bet.AspNet.LegacyHosting.AzureAppConfiguration.csproj", "{CA72481F-C3CE-4B04-8C17-FBDB4960679A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bet.Extensions.LegacyHosting.Abstractions", "src\Bet.Extensions.LegacyHosting.Abstractions\Bet.Extensions.LegacyHosting.Abstractions.csproj", "{5B8CAC88-18D5-4BA1-9133-470A4E57A5FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +73,18 @@ Global
 		{6C68A8DB-30F7-471D-85BC-82ED943D78FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C68A8DB-30F7-471D-85BC-82ED943D78FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C68A8DB-30F7-471D-85BC-82ED943D78FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5EB763E6-7616-4395-9EAB-4CA20CCE89B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5EB763E6-7616-4395-9EAB-4CA20CCE89B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5EB763E6-7616-4395-9EAB-4CA20CCE89B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5EB763E6-7616-4395-9EAB-4CA20CCE89B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA72481F-C3CE-4B04-8C17-FBDB4960679A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA72481F-C3CE-4B04-8C17-FBDB4960679A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA72481F-C3CE-4B04-8C17-FBDB4960679A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA72481F-C3CE-4B04-8C17-FBDB4960679A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B8CAC88-18D5-4BA1-9133-470A4E57A5FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B8CAC88-18D5-4BA1-9133-470A4E57A5FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B8CAC88-18D5-4BA1-9133-470A4E57A5FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B8CAC88-18D5-4BA1-9133-470A4E57A5FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -78,6 +96,9 @@ Global
 		{C029416E-7502-475A-A8EF-4DE55DDA014B} = {F1F583EE-2F4E-4826-AD92-11769D59ED5B}
 		{3A8E9CCF-7EF6-42A1-9DBA-BD7354EEE723} = {F1F583EE-2F4E-4826-AD92-11769D59ED5B}
 		{6C68A8DB-30F7-471D-85BC-82ED943D78FB} = {F1F583EE-2F4E-4826-AD92-11769D59ED5B}
+		{5EB763E6-7616-4395-9EAB-4CA20CCE89B0} = {F1F583EE-2F4E-4826-AD92-11769D59ED5B}
+		{CA72481F-C3CE-4B04-8C17-FBDB4960679A} = {F1F583EE-2F4E-4826-AD92-11769D59ED5B}
+		{5B8CAC88-18D5-4BA1-9133-470A4E57A5FC} = {F1F583EE-2F4E-4826-AD92-11769D59ED5B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3286E71C-82D1-410C-9C33-A4C44DB6E718}

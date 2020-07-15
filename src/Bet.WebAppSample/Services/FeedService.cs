@@ -1,5 +1,4 @@
-﻿
-using Bet.Extensions.LegacyHosting;
+﻿using Bet.Extensions.LegacyHosting;
 using Bet.WebAppSample.Options;
 
 using Microsoft.Extensions.Options;
