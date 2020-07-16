@@ -5,7 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using Bet.WebAppSample.Options;
 using Bet.WebAppSample.Services;
+
+using Microsoft.Extensions.Options;
 
 namespace Bet.WebAppSample
 {
@@ -13,16 +16,19 @@ namespace Bet.WebAppSample
     public partial class _Default : Page
 #pragma warning restore SA1300 // Element should begin with upper-case letter
     {
-        private readonly FeedService _feedService;
+        private readonly OptionsService _optionsService;
+        private readonly IOptionsSnapshot<AppOptions> _options;
 
-        public _Default(FeedService feedService)
+        public _Default(OptionsService optionsService, IOptionsSnapshot<AppOptions> options)
         {
-            _feedService = feedService;
+            _optionsService = optionsService;
+            _options = options;
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblFeed.Text = _feedService.GetValue();
+            lblOptionsTextValue.Text = _optionsService.GetValue();
+            lblOptionsMessage.Text = _options.Value.Message;
         }
     }
 }

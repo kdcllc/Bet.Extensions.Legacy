@@ -3,41 +3,56 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">
-            <asp:Label ID="lblFeed" runat="server" Text="Feed Service Value"></asp:Label>
-        </p>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <h1>Bet.Extensions.Legacy</h1>
+        <p class="lead">Migrating from ASP.NET WebForms, MVC4 and WebApi2 to AspNetCore with incremental approach.</p>
+        <p><a href="https://github.com/kdcllc/Bet.Extensions.Legacy" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="alert alert-success" role="alert">
+                <asp:Label ID="lblOptionsTextValue" CssClass="" runat="server" Text="Options Value from AppOptions"></asp:Label>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="alert alert-success" role="alert">
+                <asp:Label ID="lblOptionsMessage" runat="server" Text="Options Value from AppOptions"></asp:Label>
+            </div>
+        </div>
     </div>
 
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting started</h2>
+            <h2>FeatureManagement</h2>
             <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
+                Bet.AspNet.FeatureManagement using with
+                ASP.NET WebForms, MVC4 and WebApi2 support for Microsoft.FeatureManagement.AspNetCore
+
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
+                <a class="btn btn-default" href="https://github.com/kdcllc/Bet.Extensions.Legacy/tree/master/src/Bet.AspNet.FeatureManagement/">Learn more &raquo;</a>
             </p>
         </div>
         <div class="col-md-4">
-            <h2>Web Hosting</h2>
+            <h2>Hosting</h2>
             <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
+                Bet.AspNet.LegacyHosting using with
+                ASP.NET WebForms, MVC4 and WebApi2 support for Microsoft.Extensions.Hosting.
+
             </p>
             <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
+                <a class="btn btn-default" href="https://github.com/kdcllc/Bet.Extensions.Legacy/tree/master/src/Bet.AspNet.LegacyHosting/">Learn more &raquo;</a>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>AzureAppConfiguration</h2>
+            <p>
+                Bet.AspNet.LegacyHosting.AzureAppConfiguration using with
+                ASP.NET WebForms, MVC4 and WebApi2 support for Microsoft.Extensions.Configuration.AzureAppConfiguration
+
+            </p>
+            <p>
+                <a class="btn btn-default" href="ttps://github.com/kdcllc/Bet.Extensions.Legacy/tree/master/src/Bet.AspNet.LegacyHosting.AzureAppConfiguration">Learn more &raquo;</a>
             </p>
         </div>
     </div>

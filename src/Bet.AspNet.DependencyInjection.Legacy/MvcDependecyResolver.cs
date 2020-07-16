@@ -6,7 +6,7 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public class MvcDependecyResolver : System.Web.Mvc.IDependencyResolver, System.Web.Http.Dependencies.IDependencyResolver
     {
-        protected IServiceProvider _provider;
+        private IServiceProvider _provider;
 
         public MvcDependecyResolver(IServiceProvider serviceProvider)
         {

@@ -6,6 +6,8 @@
 ![Nuget](https://img.shields.io/nuget/dt/Bet.Extensions.LegacyHosting)
 [![feedz.io](https://img.shields.io/badge/endpoint.svg?url=https://f.feedz.io/kdcllc/kdcllc/shield/Bet.Extensions.LegacyHosting/latest)](https://f.feedz.io/kdcllc/kdcllc/packages/Bet.Extensions.LegacyHosting/latest/download)
 
+*Note: Pre-release packages are distributed via [feedz.io](https://f.feedz.io/kdcllc/kdcllc/nuget/index.json).*
+
 The goal of this project is tie together Migration libraries as a LegacyHost.
 
 ## Install

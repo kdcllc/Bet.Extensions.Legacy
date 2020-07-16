@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Nuget">
+    <Description>
+      Microsoft.Azure.AppConfiguration.AspNetCore allows developers to use Microsoft Azure App Configuration service as a configuration source in their Legacy .NET applications.
+      This package adds additional features for ASP.NET 4.x applications to the existing package Microsoft.Extensions.Configuration.AzureAppConfiguration.
+    </Description>
+    <PackageTags>Migration, ASP.NET Web, .NET Framework, Configuration, Extensions, DotNetCore, AspNetCore, Microsoft.Extensions.Configuration.AzureAppConfiguration</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Identity" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.AzureAppConfiguration" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
+    <PackageReference Include="Microsoft.Extensions.Options" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.WebHost" />
+    <PackageReference Include="Microsoft.Owin" />
+    <PackageReference Include="Owin" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="System.Web" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Bet.Extensions.LegacyHosting.Abstractions\Bet.Extensions.LegacyHosting.Abstractions.csproj" />
+    <ProjectReference Include="..\Bet.Extensions.Options.Legacy\Bet.Extensions.Options.Legacy.csproj" />
+  </ItemGroup>
+
+</Project>

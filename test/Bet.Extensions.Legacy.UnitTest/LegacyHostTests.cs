@@ -1,5 +1,4 @@
-﻿
-using Bet.Extensions.LegacyHosting;
+﻿using Bet.Extensions.LegacyHosting;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

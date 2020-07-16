@@ -11,6 +11,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.Extensions.LegacyHostin
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.Extensions.Options.Legacy", "src\Bet.Extensions.Options.Legacy\Bet.Extensions.Options.Legacy.csproj", "{4D5BF779-BAC9-46CB-B5FB-7D27554E3D95}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.AspNet.FeatureManagement", "src\Bet.AspNet.FeatureManagement\Bet.AspNet.FeatureManagement.csproj", "{F58AAE99-EC49-4046-A56D-081F1606015E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.AspNet.LegacyHosting.AzureAppConfiguration", "src\Bet.AspNet.LegacyHosting.AzureAppConfiguration\Bet.AspNet.LegacyHosting.AzureAppConfiguration.csproj", "{306A451C-5882-4BC8-ADF1-EB1BAEC0FCDF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.Extensions.LegacyHosting.Abstractions", "src\Bet.Extensions.LegacyHosting.Abstractions\Bet.Extensions.LegacyHosting.Abstractions.csproj", "{9EE2D54B-F7D3-4D53-9032-8DD207905199}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +39,18 @@ Global
 		{4D5BF779-BAC9-46CB-B5FB-7D27554E3D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D5BF779-BAC9-46CB-B5FB-7D27554E3D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D5BF779-BAC9-46CB-B5FB-7D27554E3D95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F58AAE99-EC49-4046-A56D-081F1606015E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F58AAE99-EC49-4046-A56D-081F1606015E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F58AAE99-EC49-4046-A56D-081F1606015E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F58AAE99-EC49-4046-A56D-081F1606015E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{306A451C-5882-4BC8-ADF1-EB1BAEC0FCDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{306A451C-5882-4BC8-ADF1-EB1BAEC0FCDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{306A451C-5882-4BC8-ADF1-EB1BAEC0FCDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{306A451C-5882-4BC8-ADF1-EB1BAEC0FCDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EE2D54B-F7D3-4D53-9032-8DD207905199}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EE2D54B-F7D3-4D53-9032-8DD207905199}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EE2D54B-F7D3-4D53-9032-8DD207905199}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EE2D54B-F7D3-4D53-9032-8DD207905199}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

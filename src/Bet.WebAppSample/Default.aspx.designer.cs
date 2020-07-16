@@ -15,12 +15,21 @@ namespace Bet.WebAppSample
     {
 
         /// <summary>
-        /// lblFeed control.
+        /// lblOptionsTextValue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFeed;
+        protected global::System.Web.UI.WebControls.Label lblOptionsTextValue;
+
+        /// <summary>
+        /// lblOptionsMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOptionsMessage;
     }
 }

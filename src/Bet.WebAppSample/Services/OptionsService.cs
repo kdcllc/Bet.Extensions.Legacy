@@ -1,17 +1,16 @@
-﻿
-using Bet.Extensions.LegacyHosting;
+﻿using Bet.Extensions.LegacyHosting;
 using Bet.WebAppSample.Options;
 
 using Microsoft.Extensions.Options;
 
 namespace Bet.WebAppSample.Services
 {
-    public class FeedService
+    public class OptionsService
     {
         private readonly AppOptions _options;
         private readonly IHostEnvironment _hostEnvironment;
 
-        public FeedService(IOptions<AppOptions> options, IHostEnvironment hostEnvironment)
+        public OptionsService(IOptions<AppOptions> options, IHostEnvironment hostEnvironment)
         {
             _options = options.Value;
             _hostEnvironment = hostEnvironment;

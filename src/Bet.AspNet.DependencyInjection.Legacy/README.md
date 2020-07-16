@@ -6,6 +6,8 @@
 ![Nuget](https://img.shields.io/nuget/dt/Bet.AspNet.DependencyInjection.Legacy)
 [![feedz.io](https://img.shields.io/badge/endpoint.svg?url=https://f.feedz.io/kdcllc/kdcllc/shield/Bet.AspNet.DependencyInjection.Legacy/latest)](https://f.feedz.io/kdcllc/kdcllc/packages/Bet.AspNet.DependencyInjection.Legacy/latest/download)
 
+*Note: Pre-release packages are distributed via [feedz.io](https://f.feedz.io/kdcllc/kdcllc/nuget/index.json).*
+
 The goal of this library is to support gradual migration of the Asp.Net WebForms/ MVC5 or WebApi2 projects to AspNetCore.
 
 ## Install
@@ -14,7 +16,9 @@ The goal of this library is to support gradual migration of the Asp.Net WebForms
     dotnet add package Bet.AspNet.DependencyInjection.Legacy
 ```
 
-## Usage within Asp.Net MVC5, WebApi2 or WebForms
+## Usage
+
+Example how to create instance within Asp.Net MVC5, WebApi2 or WebForms
 
 ```csharp
         void Application_Start(object sender, EventArgs e)
@@ -33,7 +37,7 @@ The goal of this library is to support gradual migration of the Asp.Net WebForms
                                 })
                                 .Build();
 
-            // Configure DI for Mvc5 and WebApi2 Controllers
+            // Configure DI for Mvc4 and WebApi2 Controllers
             builder.ConfigureMvcDependencyResolver();
 
             // Configure DI for WebForms

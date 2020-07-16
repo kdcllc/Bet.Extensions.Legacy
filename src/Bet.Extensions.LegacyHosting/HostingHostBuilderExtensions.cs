@@ -13,7 +13,7 @@ namespace Bet.Extensions.LegacyHosting
         /// <param name="hostBuilder"></param>
         /// <param name="applicationName"></param>
         /// <returns></returns>
-        public static HostBuilder UseApplicationName(this HostBuilder hostBuilder, string applicationName)
+        public static IHostBuilder UseApplicationName(this IHostBuilder hostBuilder, string applicationName)
         {
             return hostBuilder.ConfigureHostConfiguration(configBuilder =>
             {
@@ -29,10 +29,10 @@ namespace Bet.Extensions.LegacyHosting
         /// <summary>
         /// Specify the environment to be used by the host.
         /// </summary>
-        /// <param name="hostBuilder">The <see cref="HostBuilder"/> to configure.</param>
+        /// <param name="hostBuilder">The <see cref="IHostBuilder"/> to configure.</param>
         /// <param name="environment">The environment to host the application in.</param>
         /// <returns>The <see cref="HostBuilder"/>.</returns>
-        public static HostBuilder UseEnvironment(this HostBuilder hostBuilder, string environment)
+        public static IHostBuilder UseEnvironment(this IHostBuilder hostBuilder, string environment)
         {
             return hostBuilder.ConfigureHostConfiguration(configBuilder =>
             {
@@ -48,10 +48,10 @@ namespace Bet.Extensions.LegacyHosting
         /// <summary>
         /// Specify the content root directory to be used by the host.
         /// </summary>
-        /// <param name="hostBuilder">The <see cref="HostBuilder"/> to configure.</param>
+        /// <param name="hostBuilder">The <see cref="IHostBuilder"/> to configure.</param>
         /// <param name="contentRoot">Path to root directory of the application.</param>
         /// <returns>The <see cref="HostBuilder"/>.</returns>
-        public static HostBuilder UseContentRoot(this HostBuilder hostBuilder, string contentRoot)
+        public static IHostBuilder UseContentRoot(this IHostBuilder hostBuilder, string contentRoot)
         {
             return hostBuilder.ConfigureHostConfiguration(configBuilder =>
             {

@@ -6,5 +6,10 @@
         /// Custom Text Value.
         /// </summary>
         public string TextValue { get; set; }
+
+        /// <summary>
+        /// Custom value for a message.
+        /// </summary>
+        public string Message { get; set; }
     }
 }

@@ -11,17 +11,15 @@ namespace Bet.Extensions.LegacyHosting
     /// <summary>
     /// Legacy HostBuilder designed to provided migraion path for existing .NET Framework projects.
     /// </summary>
-    public class HostBuilder
+    public class HostBuilder : IHostBuilder
     {
-        private List<Action<IConfigurationBuilder>> _configureHostConfigActions = new List<Action<IConfigurationBuilder>>();
+        private readonly List<Action<IConfigurationBuilder>> _configureHostConfigActions = new List<Action<IConfigurationBuilder>>();
 
-        private List<Action<HostBuilderContext, IConfigurationBuilder>> _configureAppConfigActions = new List<Action<HostBuilderContext, IConfigurationBuilder>>();
+        private readonly List<Action<HostBuilderContext, IConfigurationBuilder>> _configureAppConfigActions = new List<Action<HostBuilderContext, IConfigurationBuilder>>();
 
-        private List<Action<HostBuilderContext, IServiceCollection>> _configureServicesActions = new List<Action<HostBuilderContext, IServiceCollection>>();
+        private readonly List<Action<HostBuilderContext, IServiceCollection>> _configureServicesActions = new List<Action<HostBuilderContext, IServiceCollection>>();
 
-        private readonly HostBuilderContext _hostBuilderContext = new HostBuilderContext();
-
-        private HostingEnvironment _hostingEnvironment;
+        private HostBuilderContext _hostBuilderContext = new HostBuilderContext();
 
         private IConfiguration _hostConfiguration;
 
@@ -35,8 +33,8 @@ namespace Bet.Extensions.LegacyHosting
         /// </summary>
         /// <param name="configureDelegate">The delegate for configuring the <see cref="IConfigurationBuilder"/> that will be used
         /// to construct the <see cref="IConfiguration"/> for the host.</param>
-        /// <returns>The same instance of the <see cref="HostBuilder"/> for chaining.</returns>
-        public HostBuilder ConfigureHostConfiguration(Action<IConfigurationBuilder> configureDelegate)
+        /// <returns>The same instance of the <see cref="IHostBuilder"/> for chaining.</returns>
+        public IHostBuilder ConfigureHostConfiguration(Action<IConfigurationBuilder> configureDelegate)
         {
             _configureHostConfigActions.Add(configureDelegate ?? throw new ArgumentNullException(nameof(configureDelegate)));
             return this;
@@ -49,8 +47,8 @@ namespace Bet.Extensions.LegacyHosting
         /// </summary>
         /// <param name="configureDelegate">The delegate for configuring the <see cref="IConfigurationBuilder"/> that will be used
         /// to construct the <see cref="IConfiguration"/> for the host.</param>
-        /// <returns>The same instance of the <see cref="HostBuilder"/> for chaining.</returns>
-        public HostBuilder ConfigureAppConfiguration(Action<HostBuilderContext, IConfigurationBuilder> configureDelegate)
+        /// <returns>The same instance of the <see cref="IHostBuilder"/> for chaining.</returns>
+        public IHostBuilder ConfigureAppConfiguration(Action<HostBuilderContext, IConfigurationBuilder> configureDelegate)
         {
             _configureAppConfigActions.Add(configureDelegate ?? throw new ArgumentNullException(nameof(configureDelegate)));
             return this;
@@ -61,8 +59,8 @@ namespace Bet.Extensions.LegacyHosting
         /// </summary>
         /// <param name="configureDelegate">The delegate for configuring the <see cref="IConfigurationBuilder"/> that will be used
         /// to construct the <see cref="IConfiguration"/> for the host.</param>
-        /// <returns>The same instance of the <see cref="HostBuilder"/> for chaining.</returns>
-        public HostBuilder ConfigureServices(Action<HostBuilderContext, IServiceCollection> configureDelegate)
+        /// <returns>The same instance of the <see cref="IHostBuilder"/> for chaining.</returns>
+        public IHostBuilder ConfigureServices(Action<HostBuilderContext, IServiceCollection> configureDelegate)
         {
             _configureServicesActions.Add(configureDelegate ?? throw new ArgumentNullException(nameof(configureDelegate)));
             return this;
@@ -130,6 +128,8 @@ namespace Bet.Extensions.LegacyHosting
                 .SetBasePath(_hostBuilderContext.HostingEnvironment.ContentRootPath)
                 .AddConfiguration(_hostConfiguration, shouldDisposeConfiguration: true);
 
+            _hostBuilderContext.Configuration = _hostConfiguration;
+
             foreach (var buildAction in _configureAppConfigActions)
             {
                 buildAction(_hostBuilderContext, configBuilder);
@@ -141,7 +141,7 @@ namespace Bet.Extensions.LegacyHosting
         private void CreateServiceProvider()
         {
             var services = new ServiceCollection();
-            services.AddSingleton<IHostEnvironment>(_hostBuilderContext.HostingEnvironment);
+            services.AddSingleton(_hostBuilderContext.HostingEnvironment);
             services.AddSingleton(_hostBuilderContext);
 
             services.AddSingleton<IHost, Internal.Host>();
