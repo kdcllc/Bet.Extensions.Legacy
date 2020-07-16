@@ -2,9 +2,10 @@
 
   <PropertyGroup>
     <DotNetCoreCommon>3.1.5</DotNetCoreCommon>
+    <AspNetCommon>5.2.7</AspNetCommon>
   </PropertyGroup>
 
-  <ItemGroup Label="Microsoft">
+  <ItemGroup Label="Microsoft.Extensions">
     <PackageReference Update="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(DotNetCoreCommon)" />
     <PackageReference Update="Microsoft.Extensions.DependencyInjection" Version="$(DotNetCoreCommon)" />
     <PackageReference Update="Microsoft.Extensions.Configuration" Version="$(DotNetCoreCommon)" />
@@ -14,10 +15,13 @@
     <PackageReference Update="Microsoft.Extensions.Configuration.Binder" Version="$(DotNetCoreCommon)" />
     <PackageReference Update="Microsoft.Extensions.Configuration.Json" Version="$(DotNetCoreCommon)" />
     <PackageReference Update="Microsoft.Extensions.Logging" Version="$(DotNetCoreCommon)" />
-    <PackageReference Update="Microsoft.AspNet.Mvc" Version="5.2.7" />
-    <PackageReference Update="Microsoft.AspNet.WebApi" Version="5.2.7" />
-    <PackageReference Update="Microsoft.AspNet.WebApi.WebHost" Version="5.2.7" />
-    <PackageReference Update="Microsoft.AspNet.WebApi.Core" Version="5.2.7" />
+  </ItemGroup>
+
+  <ItemGroup Label="Microsoft.Extensions">
+    <PackageReference Update="Microsoft.AspNet.Mvc" Version="$(AspNetCommon)" />
+    <PackageReference Update="Microsoft.AspNet.WebApi" Version="$(AspNetCommon)" />
+    <PackageReference Update="Microsoft.AspNet.WebApi.WebHost" Version="$(AspNetCommon)" />
+    <PackageReference Update="Microsoft.AspNet.WebApi.Core" Version="$(AspNetCommon)" />
   </ItemGroup>
 
   <ItemGroup Label="System">

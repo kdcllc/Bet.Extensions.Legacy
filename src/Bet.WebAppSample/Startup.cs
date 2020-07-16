@@ -1,4 +1,6 @@
-﻿using Owin;
+﻿using Microsoft.Owin;
+
+using Owin;
 
 namespace Bet.WebAppSample
 {

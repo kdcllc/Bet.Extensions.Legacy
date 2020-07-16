@@ -6,6 +6,8 @@
 ![Nuget](https://img.shields.io/nuget/dt/Bet.AspNet.LegacyHosting)
 [![feedz.io](https://img.shields.io/badge/endpoint.svg?url=https://f.feedz.io/kdcllc/kdcllc/shield/Bet.AspNet.LegacyHosting/latest)](https://f.feedz.io/kdcllc/kdcllc/packages/Bet.AspNet.LegacyHosting/latest/download)
 
+*Note: Pre-release packages are distributed via [feedz.io](https://f.feedz.io/kdcllc/kdcllc/nuget/index.json).*
+
 This library provides with a way to register `Microsoft.Extensions.DependecyInjection` library into the older version of Asp.Net Application in preparation for the migration.
 
 There are many enterprise and small businesses that run their websites from Asp.Net framework and haven't made the transition to AspNetCore. This library attempts to provide with ability for gradual migration of the functionality.

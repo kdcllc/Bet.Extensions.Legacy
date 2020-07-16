@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 
 using Azure.Identity;
 
@@ -16,7 +15,7 @@ namespace Bet.AspNet.LegacyHosting
 {
     public static class HostBuilderExtensions
     {
-        private static readonly string AppConfig = nameof(AppConfig);
+        private static readonly string AzureAppConfig = nameof(AzureAppConfig);
 
         private static readonly Dictionary<string, string> Environments = new Dictionary<string, string>
         {
@@ -25,11 +24,22 @@ namespace Bet.AspNet.LegacyHosting
             { "Production", "prod" }
         };
 
+        /// <summary>
+        /// Adds Azure App Configuration support for ASP.NET WebForm, MVC4 or WebApi2 application.
+        /// Configuration section for <see cref="AppConfigurationConnectOptions"/> is set to <see cref="AzureAppConfig"/>.
+        /// It requires <see cref="Owin"/>  to be configured with Web Application.
+        /// </summary>
+        /// <param name="builder">The hosting builder.</param>
+        /// <param name="appConfigiSectionName">The configuration section to load from Azure App Configuration storage.</param>
+        /// <param name="appConfigRefreshSectionName">The configuration section to watch for Azure App Configuration reload.</param>
+        /// <param name="configureAzureAppConfigOptions">The <see cref="AzureAppConfigurationOptions"/>.</param>
+        /// <param name="configureConnect">The <see cref="AppConfigurationConnectOptions"/>.</param>
+        /// <returns></returns>
         public static IHostBuilder UseAzureAppConfiguration(
             this IHostBuilder builder,
             string appConfigiSectionName,
             string appConfigRefreshSectionName,
-            Action<AzureAppConfigurationOptions>? configureAzureAppConfigOptions = default,
+            Action<AzureAppConfigurationOptions, AppConfigurationConnectOptions, IConfiguration>? configureAzureAppConfigOptions = default,
             Action<AppConfigurationConnectOptions, IConfiguration>? configureConnect = default)
         {
             builder.ConfigureAppConfiguration((context, configBuilder) =>
@@ -38,7 +48,7 @@ namespace Bet.AspNet.LegacyHosting
                 {
                     // create connection options
                     var connectOptions = new AppConfigurationConnectOptions();
-                    context.Configuration.Bind(AppConfig, connectOptions);
+                    context.Configuration.Bind(AzureAppConfig, connectOptions);
                     configureConnect?.Invoke(connectOptions, context.Configuration);
 
                     if (!string.IsNullOrEmpty(connectOptions.ConnectionString))
@@ -66,10 +76,10 @@ namespace Bet.AspNet.LegacyHosting
                         refresh
                             .Register(appConfigRefreshSectionName, refreshAll: true)
                             .Register(appConfigRefreshSectionName, Environments[context.HostingEnvironment.EnvironmentName], refreshAll: true)
-                            .SetCacheExpiration(TimeSpan.FromSeconds(1));
+                            .SetCacheExpiration(connectOptions.CacheIntervalForOptions);
                     });
 
-                    configureAzureAppConfigOptions?.Invoke(options);
+                    configureAzureAppConfigOptions?.Invoke(options, connectOptions, context.Configuration);
                 });
             });
 

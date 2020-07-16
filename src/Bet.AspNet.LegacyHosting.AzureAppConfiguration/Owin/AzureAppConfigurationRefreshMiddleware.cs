@@ -8,17 +8,10 @@ using Microsoft.Owin;
 
 namespace Bet.AspNet.LegacyHosting.AzureAppConfiguration.Owin
 {
-    /// <summary>
-    /// Working middleware based on : https://medium.com/@ofirbarak96/custom-middlewares-with-dependency-injection-in-net-framework-b18f5b935e4d.
-    /// </summary>
     public class AzureAppConfigurationRefreshMiddleware
     {
-        private readonly IConfiguration _configuration;
-
         public AzureAppConfigurationRefreshMiddleware(IConfiguration configuration)
         {
-            _configuration = configuration;
-
             Refreshers = new List<IConfigurationRefresher>();
 
             if (!(configuration is IConfigurationRoot configurationRoot))

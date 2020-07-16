@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using Microsoft.FeatureManagement;
 
 namespace Bet.AspNet.FeatureManagement
@@ -107,6 +108,7 @@ namespace Bet.AspNet.FeatureManagement
             if (scope != null)
             {
                 var fm = scope.ServiceProvider.GetRequiredService<IFeatureManagerSnapshot>();
+                var options = scope.ServiceProvider.GetService<IOptions<FeatureGateOptions>>().Value;
 
                 // Enabled state is determined by either 'any' or 'all' features being enabled.
                 var enabled = RequirementType == RequirementType.All ?
@@ -117,8 +119,8 @@ namespace Bet.AspNet.FeatureManagement
                 {
                     filterContext.Result = new RedirectToRouteResult(new RouteValueDictionary(new
                     {
-                        controller = "Default",
-                        action = "Index"
+                        controller = options.ControllerName,
+                        action = options.ActionName
                     }));
                 }
             }

@@ -20,39 +20,49 @@ namespace Bet.WebAppSample
     {
         void Application_Start(object sender, EventArgs e)
         {
-            var builder = WebHost.CreateDefaultBuilder<Global>()
+            var builder = WebHost.CreateDefaultBuilder<Startup>()
+
+                                // requires to have configuration for Azure App Configurations
                                 .UseAzureAppConfiguration(
                                  "WebApp:AppOptions*",
                                  "WebApp:AppOptions:Flag",
-                                 configureAzureAppConfigOptions: options =>
+                                 configureAzureAppConfigOptions:
+                                 (options, connect, config) =>
                                  {
                                      options.UseFeatureFlags(flags =>
                                      {
-                                         flags.CacheExpirationTime = TimeSpan.FromSeconds(1);
+                                         flags.CacheExpirationTime = connect.CacheIntervalForFeatures;
                                      });
                                  })
                                 .ConfigureServices((context, services) =>
                                 {
-                                    services.AddOptions<AppOptions>()
-                                    .Configure<IConfiguration>((options, config) =>
-                                    {
-                                        config.Bind("AppOptions", options);
-                                    });
+                                    services.AddChangeTokenOptions<AppOptions>("AppOptions", configureAction: (_) => { });
+                                    services.AddChangeTokenOptions<AppOptions>("WebApp:AppOptions", configureAction: (_) => { });
+
+                                    //services.AddOptions<AppOptions>()
+                                    //.Configure<IConfiguration>((options, config) =>
+                                    //{
+                                    //    // bind
+                                    //    config.Bind("AppOptions", options);
+
+                                    //    // bind azure app config provider
+                                    //    config.Bind("WebApp:AppOptions", options);
+                                    //});
 
                                     services.AddFeatureManagement();
 
                                     // register our service here
-                                    services.AddTransient<FeedService>();
+                                    services.AddTransient<OptionsService>();
                                 })
                                 .Build();
 
-            // Configure DI for Mvc5 and WebApi2 Controllers
+            // Configure DI for Mvc4 and WebApi2 Controllers
             builder.ConfigureMvcDependencyResolver();
 
             // Configure DI for WebForms
             builder.ConfigureWebFormsResolver();
 
-            var logger = builder.Services.GetService<ILoggerFactory>().CreateLogger(nameof(WebApiConfig));
+            var logger = builder.Services.GetService<ILoggerFactory>().CreateLogger(nameof(Global));
 
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();

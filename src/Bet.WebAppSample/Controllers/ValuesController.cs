@@ -2,45 +2,29 @@
 using System.Web.Http;
 
 using Bet.AspNet.FeatureManagement;
+using Bet.WebAppSample.Options;
 using Bet.WebAppSample.Services;
+
+using Microsoft.Extensions.Options;
 
 namespace Bet.WebAppSample.Controllers
 {
     public class ValuesController : ApiController
     {
-        private readonly FeedService _feedService;
+        private readonly OptionsService _optionsService;
+        private readonly IOptionsSnapshot<AppOptions> _options;
 
-        public ValuesController(FeedService feedService)
+        public ValuesController(OptionsService optionsService, IOptionsSnapshot<AppOptions> options)
         {
-            _feedService = feedService;
+            _optionsService = optionsService;
+            _options = options;
         }
 
         // GET: api/Values
         [ApiFeatureGate(FeatureReleaseFlags.Alpha)]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2", _feedService.GetValue() };
-        }
-
-        // GET: api/Values/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/Values
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT: api/Values/5
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE: api/Values/5
-        public void Delete(int id)
-        {
+            return new string[] { _options.Value.Message, _optionsService.GetValue() };
         }
     }
 }

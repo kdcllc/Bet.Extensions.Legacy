@@ -6,6 +6,8 @@
 ![Nuget](https://img.shields.io/nuget/dt/Bet.Extensions.Options.Legacy)
 [![feedz.io](https://img.shields.io/badge/endpoint.svg?url=https://f.feedz.io/kdcllc/kdcllc/shield/Bet.Extensions.Options.Legacy/latest)](https://f.feedz.io/kdcllc/kdcllc/packages/Bet.Extensions.Options.Legacy/latest/download)
 
+*Note: Pre-release packages are distributed via [feedz.io](https://f.feedz.io/kdcllc/kdcllc/nuget/index.json).*
+
 The goal of this library to provide a migration path for Asp.Net WebForms and also Console Application with `Micrsoft.Extensions.Configuration` Provider for `Web.config` or `App.config`.
 
 ## Install
