@@ -9,12 +9,14 @@ using Microsoft.Extensions.Options;
 
 namespace Bet.WebAppSample.Controllers
 {
-    public class ValuesController : ApiController
+    public class OptionsController : ApiController
     {
-        private readonly OptionsService _optionsService;
+        private readonly ConfigurationService _optionsService;
         private readonly IOptionsSnapshot<AppOptions> _options;
 
-        public ValuesController(OptionsService optionsService, IOptionsSnapshot<AppOptions> options)
+        public OptionsController(
+            ConfigurationService optionsService,
+            IOptionsSnapshot<AppOptions> options)
         {
             _optionsService = optionsService;
             _options = options;
@@ -24,7 +26,7 @@ namespace Bet.WebAppSample.Controllers
         [ApiFeatureGate(FeatureReleaseFlags.Alpha)]
         public IEnumerable<string> Get()
         {
-            return new string[] { _options.Value.Message, _optionsService.GetValue() };
+            return new string[] { $"Message-{_options.Value.Message}", $"Refreshed-{_optionsService.Referesh()}" };
         }
     }
 }

@@ -55,9 +55,10 @@
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                    <% if (IsBeta)
                       { %>
-                        <li><a href="/api/Values">Values</a></li>
+                        <li><a href="/api/Options">Options Api</a></li>
                    <% }%>
                         <li><a href="/FeatureManagement">FeatureManagement</a></li>
+                        <li><a href="/FeatureManagement/Beta">Beta</a></li>
                     </ul>
                 </div>
             </div>

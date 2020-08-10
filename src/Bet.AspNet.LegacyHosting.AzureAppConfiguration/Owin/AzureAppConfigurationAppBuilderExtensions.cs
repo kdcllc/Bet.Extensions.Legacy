@@ -23,14 +23,13 @@ namespace Owin
 
             app.Use(async (context, next) =>
             {
-                var sp = HttpRuntime.WebObjectActivator;
+                var sp = context.Environment.GetRequestProvider();
                 if (sp == null)
                 {
                     throw new InvalidOperationException("IServiceProvider wasn't set.");
                 }
 
-                using var scope = sp.CreateScope();
-                var requestDataMiddleware = scope.ServiceProvider.GetRequiredService<AzureAppConfigurationRefreshMiddleware>();
+                var requestDataMiddleware = sp.GetRequiredService<AzureAppConfigurationRefreshMiddleware>();
                 await requestDataMiddleware.Invoke(context, next);
             });
 

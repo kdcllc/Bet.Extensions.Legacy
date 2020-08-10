@@ -12,7 +12,7 @@ namespace Bet.AspNet.LegacyHosting
     public static class HostContextExtensions
     {
         /// <summary>
-        /// Configure Asp.Net Mvc4 and WebApi2 Dependency Injection.
+        /// Configure Asp.Net Mvc4 Dependency Injection.
         /// </summary>
         /// <param name="host"></param>
         /// <returns></returns>
@@ -23,7 +23,7 @@ namespace Bet.AspNet.LegacyHosting
             // Set MVC Resolver
             DependencyResolver.SetResolver(resolver);
 
-            // Set up Resolver
+            // Set WebApi Resolver
             GlobalConfiguration.Configuration.DependencyResolver = resolver;
 
             return host;
