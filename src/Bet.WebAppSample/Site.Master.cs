@@ -2,7 +2,6 @@
 using System.Web.UI;
 
 using Bet.AspNet.FeatureManagement;
-using Bet.WebAppSample.Options;
 
 using Microsoft.FeatureManagement;
 
@@ -19,10 +18,12 @@ namespace Bet.WebAppSample
 
         public bool IsBeta { get; set; }
 
+        public bool IsAlpha { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            var feature = FeatureReleaseFlags.Beta.ToString();
-            IsBeta = _featureSnapshot.IsEnabledAsync(feature).GetAwaiter().GetResult();
+            IsBeta = _featureSnapshot.IsEnabledAsync(nameof(FeatureReleaseFlags.Beta)).GetAwaiter().GetResult();
+            IsAlpha = _featureSnapshot.IsEnabledAsync(nameof(FeatureReleaseFlags.Alpha)).GetAwaiter().GetResult();
         }
     }
 }

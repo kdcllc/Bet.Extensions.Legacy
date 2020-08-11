@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
 
+using Bet.AspNet.DependencyInjection.Legacy;
+
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.FeatureManagement;
 
@@ -104,8 +106,7 @@ namespace Bet.AspNet.FeatureManagement
         /// <param name="filterContext">The context of the MVC action.</param>
         public override void OnActionExecuting(HttpActionContext filterContext)
         {
-            using var scope = HttpRuntime.WebObjectActivator.CreateScope();
-            if (scope != null)
+            if (HttpContext.Current.Items[Constants.ServiceScopeType] is IServiceScope scope)
             {
                 var fm = scope.ServiceProvider.GetRequiredService<IFeatureManagerSnapshot>();
 

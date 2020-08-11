@@ -1,5 +1,4 @@
-﻿
-using Owin;
+﻿using Owin;
 
 namespace Bet.WebAppSample
 {
@@ -7,9 +6,7 @@ namespace Bet.WebAppSample
     {
         public void Configuration(IAppBuilder app)
         {
-            app.UseServiceProvider()
-               .UseWebApi2();
-
+            // use this in conjunction
             app.UseAzureAppConfiguration();
         }
     }

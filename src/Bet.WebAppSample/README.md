@@ -70,3 +70,10 @@ For Azure App Configuration to work add the following:
         }
     }
 ```
+
+```bash
+    dotnet tool install --global appauthentication
+
+    appauthentication run -l --verbose:debug
+    
+```

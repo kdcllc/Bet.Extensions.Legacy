@@ -30,7 +30,6 @@ namespace Bet.WebAppSample.Controllers
         }
 
         // GET: FeatureManagement
-        [FeatureGate(RequirementType.All, FeatureReleaseFlags.Beta, FeatureReleaseFlags.Alpha)]
         public ActionResult Index()
         {
             ViewData["Message"] = _optionsService.Referesh();
@@ -43,6 +42,7 @@ namespace Bet.WebAppSample.Controllers
             return View(model);
         }
 
+        [FeatureGate(RequirementType.All, FeatureReleaseFlags.Beta, FeatureReleaseFlags.Alpha)]
         public ActionResult Beta()
         {
             ViewBag.Message = "Your application description page.";

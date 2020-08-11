@@ -37,7 +37,6 @@
   <ItemGroup Label="Owin">
     <PackageReference Update="Microsoft.Owin" Version="4.1.0" />
     <PackageReference Update="Microsoft.Owin.Host.SystemWeb" Version="4.1.0" />
-    <PackageReference Update="Microsoft.AspNet.WebApi.Owin" Version="$(AspNetCommon)"/>
     <PackageReference Update="Owin" Version="1.0" />
   </ItemGroup>
 

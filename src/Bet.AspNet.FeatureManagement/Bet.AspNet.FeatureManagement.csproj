@@ -16,6 +16,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Bet.AspNet.DependencyInjection.Legacy\Bet.AspNet.DependencyInjection.Legacy.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Reference Include="System.Web" />
   </ItemGroup>
 

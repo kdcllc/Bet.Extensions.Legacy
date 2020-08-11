@@ -258,7 +258,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -325,13 +324,6 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\FeatureManagementController.cs" />
     <Compile Include="Controllers\OptionsController.cs" />
     <Compile Include="Default.aspx.cs">
@@ -392,10 +384,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Bet.AspNet.DependencyInjection.Owin\Bet.AspNet.DependencyInjection.Owin.csproj">
-      <Project>{afc339c1-02b9-4475-8223-25b183489094}</Project>
-      <Name>Bet.AspNet.DependencyInjection.Owin</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Bet.AspNet.FeatureManagement\Bet.AspNet.FeatureManagement.csproj">
       <Project>{5eb763e6-7616-4395-9eab-4ca20cce89b0}</Project>
       <Name>Bet.AspNet.FeatureManagement</Name>

@@ -22,7 +22,7 @@ namespace Bet.WebAppSample.Controllers
             _options = options;
         }
 
-        // GET: api/Values
+        // GET: api/Options
         [ApiFeatureGate(FeatureReleaseFlags.Alpha)]
         public IEnumerable<string> Get()
         {

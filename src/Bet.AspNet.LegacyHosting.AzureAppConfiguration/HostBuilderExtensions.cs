@@ -10,6 +10,7 @@ using Bet.Extensions.LegacyHosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration.AzureAppConfiguration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Bet.AspNet.LegacyHosting
 {
@@ -85,7 +86,7 @@ namespace Bet.AspNet.LegacyHosting
 
             builder.ConfigureServices((context, services) =>
             {
-                services.AddTransient<AzureAppConfigurationRefreshMiddleware>();
+                services.TryAddTransient<AzureAppConfigurationRefreshMiddleware>();
             });
 
             return builder;

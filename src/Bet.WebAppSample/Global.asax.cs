@@ -27,17 +27,17 @@ namespace Bet.WebAppSample
                                 })
 
                                 // requires to have configuration for Azure App Configurations
-                                //.UseAzureAppConfiguration(
-                                // "WebApp:AppOptions*",
-                                // "WebApp:AppOptions:Flag",
-                                // configureAzureAppConfigOptions:
-                                // (options, connect, config) =>
-                                // {
-                                //     options.UseFeatureFlags(flags =>
-                                //     {
-                                //         flags.CacheExpirationTime = connect.CacheIntervalForFeatures;
-                                //     });
-                                // })
+                                .UseAzureAppConfiguration(
+                                 "WebApp:AppOptions*",
+                                 "WebApp:AppOptions:Flag",
+                                 configureAzureAppConfigOptions:
+                                 (options, connect, config) =>
+                                 {
+                                     options.UseFeatureFlags(flags =>
+                                     {
+                                         flags.CacheExpirationTime = connect.CacheIntervalForFeatures;
+                                     });
+                                 })
                                 .ConfigureServices((context, services) =>
                                 {
                                     services.AddChangeTokenOptions<AppOptions>("AppOptions", configureAction: (_) => { });
@@ -46,7 +46,7 @@ namespace Bet.WebAppSample
                                     services.AddFeatureManagement();
 
                                     // register our service here
-                                    services.AddTransient<ConfigurationService>();
+                                    services.AddSingleton<ConfigurationService>();
                                 })
                                 .Build();
 
