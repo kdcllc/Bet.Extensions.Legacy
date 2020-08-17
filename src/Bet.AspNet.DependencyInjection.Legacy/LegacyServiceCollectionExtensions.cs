@@ -19,7 +19,8 @@ namespace Microsoft.Extensions.DependencyInjection
             var controllers = typeof(T).Assembly.GetExportedTypes()
                 .Where(t => !t.IsAbstract
                     && !t.IsGenericTypeDefinition
-                    && (typeof(IController).IsAssignableFrom(t) || t.Name.EndsWith("Controller", StringComparison.OrdinalIgnoreCase)));
+                    && (typeof(IController).IsAssignableFrom(t)
+                    || t.Name.EndsWith("Controller", StringComparison.OrdinalIgnoreCase)));
 
             return services.AddControllersAsServices(controllers);
         }

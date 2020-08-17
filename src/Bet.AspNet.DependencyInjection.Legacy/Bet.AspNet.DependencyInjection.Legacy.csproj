@@ -1,8 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyTitle>Bet.Extensions.DependencyInjection.WebForms</AssemblyTitle>
-    <Product>Bet.Extensions.DependencyInjection.WebForms</Product>
   </PropertyGroup>
 
   <PropertyGroup Label="Nuget">

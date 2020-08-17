@@ -1,6 +1,4 @@
-﻿using Microsoft.Owin;
-
-using Owin;
+﻿using Owin;
 
 namespace Bet.WebAppSample
 {
@@ -8,6 +6,7 @@ namespace Bet.WebAppSample
     {
         public void Configuration(IAppBuilder app)
         {
+            // use this in conjunction
             app.UseAzureAppConfiguration();
         }
     }

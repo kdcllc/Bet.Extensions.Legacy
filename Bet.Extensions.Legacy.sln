@@ -39,9 +39,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.AspNet.LegacyHosting", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.AspNet.FeatureManagement", "src\Bet.AspNet.FeatureManagement\Bet.AspNet.FeatureManagement.csproj", "{5EB763E6-7616-4395-9EAB-4CA20CCE89B0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bet.AspNet.LegacyHosting.AzureAppConfiguration", "src\Bet.AspNet.LegacyHosting.AzureAppConfiguration\Bet.AspNet.LegacyHosting.AzureAppConfiguration.csproj", "{CA72481F-C3CE-4B04-8C17-FBDB4960679A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.AspNet.LegacyHosting.AzureAppConfiguration", "src\Bet.AspNet.LegacyHosting.AzureAppConfiguration\Bet.AspNet.LegacyHosting.AzureAppConfiguration.csproj", "{CA72481F-C3CE-4B04-8C17-FBDB4960679A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bet.Extensions.LegacyHosting.Abstractions", "src\Bet.Extensions.LegacyHosting.Abstractions\Bet.Extensions.LegacyHosting.Abstractions.csproj", "{5B8CAC88-18D5-4BA1-9133-470A4E57A5FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bet.Extensions.LegacyHosting.Abstractions", "src\Bet.Extensions.LegacyHosting.Abstractions\Bet.Extensions.LegacyHosting.Abstractions.csproj", "{5B8CAC88-18D5-4BA1-9133-470A4E57A5FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

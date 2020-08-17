@@ -5,26 +5,26 @@ using System.Web.Mvc;
 using Bet.AspNet.DependencyInjection.Legacy;
 using Bet.Extensions.LegacyHosting;
 
-using Microsoft.Extensions.DependencyInjection;
-
 namespace Bet.AspNet.LegacyHosting
 {
     public static class HostContextExtensions
     {
         /// <summary>
-        /// Configure Asp.Net Mvc4 and WebApi2 Dependency Injection.
+        /// Configure Asp.Net Mvc4 Dependency Injection.
         /// </summary>
         /// <param name="host"></param>
         /// <returns></returns>
         public static IHost ConfigureMvcDependencyResolver(this IHost host)
         {
-            var resolver = new MvcDependecyResolver(host.Services);
+            var resolver = new ServiceScopeResolver(host.Services);
 
             // Set MVC Resolver
             DependencyResolver.SetResolver(resolver);
 
-            // Set up Resolver
+            // Set WebApi Resolver
             GlobalConfiguration.Configuration.DependencyResolver = resolver;
+
+            ServiceScopeModule.SetServiceProvider(host.Services);
 
             return host;
         }

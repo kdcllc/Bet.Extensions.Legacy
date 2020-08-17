@@ -23,7 +23,8 @@ namespace Bet.AspNet.DependencyInjection.Legacy
                 var currentHttpContext = HttpContext.Current;
                 if (currentHttpContext != null)
                 {
-                    lifetimeScope = (IServiceScope)currentHttpContext.Items[typeof(IServiceScope)];
+                    lifetimeScope = currentHttpContext.GetWebFormsServiceScope();
+
                     if (lifetimeScope == null)
                     {
                         void CleanScope(object sender, EventArgs args)
@@ -36,7 +37,7 @@ namespace Bet.AspNet.DependencyInjection.Legacy
                         }
 
                         lifetimeScope = _serviceProvider.CreateScope();
-                        currentHttpContext.Items.Add(typeof(IServiceScope), lifetimeScope);
+                        currentHttpContext.Items[Constants.ServiceScopeWebForms] = lifetimeScope;
                         currentHttpContext.ApplicationInstance.RequestCompleted += CleanScope;
                     }
                 }

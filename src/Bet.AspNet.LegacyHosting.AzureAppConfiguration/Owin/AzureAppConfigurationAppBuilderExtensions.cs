@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web;
 
+using Bet.AspNet.DependencyInjection.Legacy;
 using Bet.AspNet.LegacyHosting.AzureAppConfiguration.Owin;
 
 using Microsoft.Extensions.DependencyInjection;
@@ -23,15 +24,14 @@ namespace Owin
 
             app.Use(async (context, next) =>
             {
-                var sp = HttpRuntime.WebObjectActivator;
-                if (sp == null)
+                if (HttpContext.Current.Items[Constants.ServiceScopeType] is IServiceScope scope)
                 {
-                    throw new InvalidOperationException("IServiceProvider wasn't set.");
+                    var requestDataMiddleware = scope.ServiceProvider.GetRequiredService<AzureAppConfigurationRefreshMiddleware>();
+                    await requestDataMiddleware.Invoke(context, next);
+                    return;
                 }
 
-                using var scope = sp.CreateScope();
-                var requestDataMiddleware = scope.ServiceProvider.GetRequiredService<AzureAppConfigurationRefreshMiddleware>();
-                await requestDataMiddleware.Invoke(context, next);
+                throw new InvalidOperationException("IServiceProvider wasn't set.");
             });
 
             return app;
