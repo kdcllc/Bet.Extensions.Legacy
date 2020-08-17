@@ -24,6 +24,16 @@ The collection of libraries in this repo enables usage of the following Microsof
 - Developers who are trying to migrate `ASP.NET` or `.NET 4.7` Applications to AspNetCore but don't have ability to migrate the entire application at once.
 - ASP.NET Web Apps that need to load configurations without restart.
 
+The basic usage scenario for these libraries are the premise of strangler pattern
+
+Waterfall approach all or nothing
+![image](https://user-images.githubusercontent.com/13120940/88412286-4dfed400-cda7-11ea-80cd-2dcf4c4fc457.png)
+
+- [Martin Fowler: StranglerFigApplication](https://martinfowler.com/bliki/StranglerFigApplication.html)
+- [Microsoft: Strangler pattern](https://docs.microsoft.com/en-us/azure/architecture/patterns/strangler)
+- [Strangling .NET Framework App to .NET Core](http://www.kamilgrzybek.com/design/strangling-net-framework-app-to-net-core/)
+- [The Strangler Pattern in Practice](https://medium.com/homeaway-tech-blog/the-strangler-pattern-in-practice-96ff4ee117ca)
+
 ## Solution Projects
 
 - [`Bet.AspNet.DependencyInjection.Legacy`](./src/Bet.AspNet.DependencyInjection.Legacy/) - Legacy Support for `Microsoft.Extensions.DependecyInjection`.
