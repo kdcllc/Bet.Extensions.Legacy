@@ -19,13 +19,14 @@ This library was design to support ASP.NET WebForms, MVC4 and WebApi legacy proj
 ## Usage
 
 For best practices Microsoft Managed Identity must be used for Endpoint to Azure App Configuration which in turn doesn't work with local development for this reason, please refer to usage of [`AppAuthentication`](https://github.com/kdcllc/AppAuthentication) dotnet cli tool.
-
 **NOTE: this tool is only used on the local development machine. In Azure Cloud MSI Identity is provided thru Environment variables.**
-
 ```bash
-    # install
+    
+    # install the tool
     dotnet tool install --global appauthentication
-
-    # run this first before opening vs.net or vscode; this it will create proper environments for you.
-    dotnet tool install --global appauthentication
+    
+    # run this first before opening vs.net or vscode; 
+    # this it will create proper environments for you.
+    appauthentication run -l --verbose:debug
 ```
+

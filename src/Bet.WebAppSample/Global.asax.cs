@@ -27,17 +27,8 @@ namespace Bet.WebAppSample
                                 })
 
                                 // requires to have configuration for Azure App Configurations
-                                .UseAzureAppConfiguration(
-                                 "WebApp:AppOptions*",
-                                 "WebApp:AppOptions:Flag",
-                                 configureAzureAppConfigOptions:
-                                 (options, connect, config) =>
-                                 {
-                                     options.UseFeatureFlags(flags =>
-                                     {
-                                         flags.CacheExpirationTime = connect.CacheIntervalForFeatures;
-                                     });
-                                 })
+                                .UseAzureAppConfiguration("WebApp:AppOptions*","WebApp:AppOptions:Flag")
+
                                 .ConfigureServices((context, services) =>
                                 {
                                     services.AddChangeTokenOptions<AppOptions>("AppOptions", configureAction: (_) => { });
